@@ -8,3 +8,9 @@ function printValue(value: string | number) {
 
 printValue("hello");
 printValue(100);
+
+function example<T extends { length: number }>(value: T): number {
+  return value.length;
+}
+
+example([1, 2, 3, 4]);
