@@ -35,3 +35,14 @@ SELECT department, COUNT(*) AS no_of_employees
 FROM employees
 GROUP BY department
 HAVING COUNT(*) > 1
+
+-- 3
+SELECT name, salary 
+FROM employees
+ORDER BY salary DESC
+LIMIT 1
+
+SELECT name, salary 
+FROM employees
+ORDER BY salary ASC
+LIMIT 1
