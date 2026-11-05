@@ -29,8 +29,19 @@ interface EmployeeResponse {
 }
 
 async function getEmployees(): Promise<EmployeeResponse> {
-  const response = await fetch(`/api/employees`);
-  const data = await response.json();
+  try {
+    const response = await fetch(`/api/employees`);
 
-  return data;
+    if (!response.ok) {
+      throw new Error("Cannot fetch the details");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
+
+getEmployees();
