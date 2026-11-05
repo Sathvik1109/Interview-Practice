@@ -19,5 +19,19 @@ SELECT
     d.department_name
 FROM employees AS e
 
-LEFT JOIN department AS d
-    IN e.department_id = d.department_id;
+LEFT JOIN departments AS d
+    ON e.department_id = d.department_id;
+
+SELECT 
+    e.name,
+    d.department_name
+FROM employees AS e
+LEFT JOIN departments AS d
+    ON e.department_id = d.department_id
+WHERE e.department_id IS NULL
+
+-- 2
+SELECT department, COUNT(*) AS no_of_employees
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 1
